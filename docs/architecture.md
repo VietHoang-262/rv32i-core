@@ -31,6 +31,22 @@ flowchart LR
 
 Các ranh giới decoder, ALU, register file và LSU độc lập với giao thức bộ nhớ. Thiết kế này tạo điểm phân chia tự nhiên để bổ sung thanh ghi pipeline; bản hiện tại chưa có hazard detection, forwarding hay flush.
 
+## Ranh giới module và dữ liệu được giữ
+
+| Khối | Nguồn vào | Đích ra và thời điểm sử dụng |
+|---|---|---|
+| Decoder `u_decoder` | `inst_q` giữ từ instruction handshake | `dec` giữ nguyên khi lệnh đang chạy; chọn thanh ghi, immediate, ALU, loại lệnh và độ rộng LSU |
+| Register file `u_regfile` | `dec.rs1/rs2`; ghi bằng `rf_we`, `dec.rd`, `result_q` | Hai giá trị đọc được chốt vào `rs1_q/rs2_q` khi DECODE kết thúc |
+| ALU `u_alu` | `rs1_q`; `alu_b` chọn `rs2_q` hoặc `dec.imm`; `dec.alu_op` | `alu_result` được chốt vào `result_q` trong EXECUTE của IK_ALU |
+| LSU `u_lsu` | Effective address khi EXECUTE, `mem_addr_q` trong pha memory; `rs2_q`, `dmem_rdata`, `dec.funct3` | Alignment được kiểm tra trước request; BE/wdata được chốt; load extraction được chốt khi handshake thành công |
+| Control flow | `pc_q`, immediate và các operand đã chốt | Tính branch condition, target và `next_pc_q`; chỉ WRITEBACK cập nhật PC |
+| Writeback | `result_q` từ ALU/U-type/link/load | Ghi register file cùng cạnh retirement, chỉ khi `rd_we=1` và `rd!=0` |
+
+Branch compare và phép cộng target/effective address là logic riêng trong core. LUI, AUIPC và link jump chọn kết quả riêng vào `result_q`; chúng không phụ thuộc ngẫu nhiên vào giá trị rs1/rs2 của encoding. Store không đi qua cổng ghi register file. Từ lệnh, operand và payload memory được giữ qua stall để các khối tổ hợp không đọc lẫn dữ liệu của lệnh khác.
+
+[Biên bản kiểm tra kết nối](connectivity-audit.md) mô tả chi tiết các port và điểm kiểm chứng; tài liệu kiến trúc này mô tả hành vi dự kiến của thiết kế.
+
+
 ## Các lệnh hỗ trợ
 
 | Nhóm | Lệnh | Quy tắc chính |

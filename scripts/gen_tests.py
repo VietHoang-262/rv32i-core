@@ -5,6 +5,8 @@ The model emits architectural retirements and externally visible memory transact
 from pathlib import Path
 import argparse
 import random
+import json
+from collections import Counter
 
 MASK = 0xffffffff
 MEM_BYTES = 4096
@@ -52,12 +54,143 @@ class Program:
             self.code[idx] = b(*args, delta) if typ == 'b' else j(*args, delta)
         return self.code
 
+# Directed groups keep fixed golden constants separate from the interpreter.
+MNEMONICS = {
+    'r_type': ('ADD','SUB','SLL','SLT','SLTU','XOR','SRL','SRA','OR','AND'),
+    'i_arithmetic': ('ADDI','SLTI','SLTIU','XORI','ORI','ANDI'),
+    'shift_imm': ('SLLI','SRLI','SRAI'),
+    'loads': ('LB','LH','LW','LBU','LHU'),
+    'stores': ('SB','SH','SW'),
+    'branches': ('BEQ','BNE','BLT','BGE','BLTU','BGEU'),
+    'u_type': ('LUI','AUIPC'), 'jumps': ('JAL','JALR'),
+    'fence_system': ('FENCE','ECALL','EBREAK'),
+}
+
+def mnemonic(ins):
+    op=ins&127; f3=(ins>>12)&7; f7=ins>>25
+    if op==0x33:
+        if f3==0: return 'SUB' if f7==32 else 'ADD'
+        if f3==5: return 'SRA' if f7==32 else 'SRL'
+        return {1:'SLL',2:'SLT',3:'SLTU',4:'XOR',6:'OR',7:'AND'}[f3]
+    if op==0x13:
+        if f3==5: return 'SRAI' if f7==32 else 'SRLI'
+        return {0:'ADDI',1:'SLLI',2:'SLTI',3:'SLTIU',4:'XORI',6:'ORI',7:'ANDI'}[f3]
+    if op==3: return {0:'LB',1:'LH',2:'LW',4:'LBU',5:'LHU'}[f3]
+    if op==0x23: return {0:'SB',1:'SH',2:'SW'}[f3]
+    if op==0x63: return {0:'BEQ',1:'BNE',4:'BLT',5:'BGE',6:'BLTU',7:'BGEU'}[f3]
+    return {0x37:'LUI',0x17:'AUIPC',0x6f:'JAL',0x67:'JALR',0xf:'FENCE',0x73:'ECALL' if ins==0x73 else 'EBREAK'}[op]
+
+def coverage_requirements():
+    required={f'mnemonic:{m}':1 for group in MNEMONICS.values() for m in group}
+    required.update({f'branch:{m}:{outcome}':1 for m in MNEMONICS['branches'] for outcome in ('taken','not_taken')})
+    for m in ('LB','LBU','SB'): required.update({f'lane:{m}:{lane}':1 for lane in range(4)})
+    for m in ('LH','LHU','SH'): required.update({f'lane:{m}:{lane}':1 for lane in (0,2)})
+    for m in ('LW','SW'): required[f'lane:{m}:0']=1
+    for m in ('LB','LH'): required.update({f'sign:{m}:{sign}':1 for sign in ('positive','negative')})
+    for m in MNEMONICS['shift_imm']: required.update({f'shamt:{m}:{sh}':1 for sh in (0,1,15,31)})
+    required.update({f'fault:{cause}':1 for cause in (0,1,2,3,4,5,6,7,11)})
+    return dict(sorted(required.items()))
+
+class GoldenProgram(Program):
+    def __init__(self):
+        super().__init__(); self.golden={}; self.memory_golden={}
+    def expect(self, ins, rd, value):
+        self.golden[len(self.code)*4]=(rd,value); self.emit(ins)
+    def options(self,group):
+        return dict(group=group,golden=self.golden,memory_golden=self.memory_golden)
+
+def grouped_programs():
+    p=GoldenProgram()
+    for rd,val in ((1,0x80000001),(2,31),(3,MASK),(4,1),(5,32),(6,0x7fffffff)): p.li(rd,val)
+    vectors=[(0,1,3,0,0x80000000),(0,6,3,32,0x80000000),(1,1,2,0,0x80000000),
+             (2,1,6,0,1),(3,1,6,0,0),(4,1,3,0,0x7ffffffe),(5,1,2,0,1),
+             (5,1,2,32,MASK),(6,1,6,0,MASK),(7,1,3,0,0x80000001),
+             (1,1,5,0,0x80000001),(5,1,5,0,0x80000001),(5,1,3,32,MASK)]
+    for f3,a,c,f7,value in vectors: p.expect(r(10,f3,a,c,f7),10,value)
+    p.expect(r(1,0,1,4),1,0x80000002) # rd aliases old rs1
+    p.expect(r(4,0,4,4),4,2) # rd==rs1==rs2
+    p.emit(0x100073)
+    yield 'group_r_type',p.finish(),p.options('r_type')
+
+    p=GoldenProgram(); p.li(1,0x80000001)
+    for f3,a,imm,value in ((0,1,-1,0x80000000),(2,1,-2048,1),(3,1,-1,1),
+                         (4,1,-1,0x7ffffffe),(6,1,2046,0x800007ff),(7,1,-2048,0x80000000),
+                         (0,1,-2048,0x7ffff801),(0,0,2047,0x7ff),(3,0,-2048,1)):
+        p.expect(i(0x13,10,f3,a,imm),10,value)
+    p.expect(i(0x13,0,0,0,123),0,123); p.expect(i(0x13,10,0,0,0),10,0)
+    p.emit(0x100073)
+    yield 'group_i_arithmetic',p.finish(),p.options('i_arithmetic')
+
+    p=GoldenProgram(); p.li(1,0x80000001)
+    for f3,upper,values in ((1,0,(0x80000001,2,0x8000,0x80000000)),
+                            (5,0,(0x80000001,0x40000000,0x10000,1)),
+                            (5,0x400,(0x80000001,0xc0000000,0xffff0000,MASK))):
+        for sh,value in zip((0,1,15,31),values): p.expect(i(0x13,10,f3,1,upper|sh),10,value)
+    p.emit(0x100073)
+    yield 'group_shift_imm',p.finish(),p.options('shift_imm')
+
+    p=GoldenProgram(); p.li(1,0x400); p.li(2,0x80ff7f01); p.emit(s(2,1,2,0))
+    for lane,value in enumerate((1,127,0xffffffff,0xffffff80)):
+        p.expect(i(3,10,0,1,lane),10,value)
+    for lane,value in enumerate((1,127,255,128)): p.expect(i(3,10,4,1,lane),10,value)
+    for lane,signed,unsigned in ((0,0x7f01,0x7f01),(2,0xffff80ff,0x80ff)):
+        p.expect(i(3,10,1,1,lane),10,signed); p.expect(i(3,10,5,1,lane),10,unsigned)
+    p.expect(i(3,10,2,1,0),10,0x80ff7f01)
+    p.expect(i(3,0,2,1,0),0,0x80ff7f01)
+    p.li(3,0x404); p.expect(i(3,10,2,3,-4),10,0x80ff7f01); p.emit(0x100073)
+    yield 'group_loads',p.finish(),p.options('loads')
+
+    p=GoldenProgram(); p.li(1,0x400); p.li(2,0xa1b2c3d4)
+    # Explicit final bytes prove lane selection and preservation of other lanes.
+    for lane in range(4): p.emit(s(0,1,2,lane)); p.memory_golden[0x400+lane]=0xd4
+    for lane in (0,2): p.emit(s(1,1,2,4+lane)); p.memory_golden.update({0x404+lane:0xd4,0x405+lane:0xc3})
+    p.emit(s(2,1,2,8)); p.memory_golden.update({0x408:0xd4,0x409:0xc3,0x40a:0xb2,0x40b:0xa1})
+    p.expect(i(3,10,2,1,0),10,0xd4d4d4d4); p.expect(i(3,10,2,1,4),10,0xc3d4c3d4)
+    p.expect(i(3,10,2,1,8),10,0xa1b2c3d4)
+    p.li(3,0x40d); p.emit(s(0,3,0,-1)); p.memory_golden[0x40c]=0
+    p.emit(0x100073)
+    yield 'group_stores',p.finish(),p.options('stores')
+
+    p=GoldenProgram(); p.li(1,0x80000000); p.li(2,0x7fffffff); p.li(3,MASK); p.li(4,0)
+    # Each comparison has independently chosen true/false/equality inputs.
+    pairs={0:((1,1,True),(1,2,False)),1:((1,2,True),(1,1,False)),
+           4:((1,2,True),(2,1,False),(1,1,False)),5:((2,1,True),(1,2,False),(1,1,True)),
+           6:((2,1,True),(1,2,False),(1,1,False)),7:((1,2,True),(2,1,False),(1,1,True))}
+    marker=0
+    for f3,vectors in pairs.items():
+        for a,c,take in vectors:
+            target=f'directed_branch_{len(p.code)}'; p.branch(f3,a,c,target)
+            p.emit(i(0x13,10,0,10,1)); marker+=not take; p.label(target)
+    p.expect(i(0x13,11,0,10,0),11,int(marker))
+    p.emit(i(0x13,12,0,0,3)); p.label('group_loop'); p.emit(i(0x13,12,0,12,-1)); p.branch(1,12,0,'group_loop')
+    p.expect(i(0x13,11,0,12,0),11,0); p.emit(0x100073)
+    yield 'group_branches',p.finish(),p.options('branches')
+
+    p=GoldenProgram(); p.expect(u(0x37,10,0x80000000),10,0x80000000)
+    p.expect(u(0x37,10,0xfffff000),10,0xfffff000); p.expect(u(0x17,10,0xfffff000),10,0xfffff008)
+    p.expect(u(0x17,11,0x12345000),11,0x1234500c); p.emit(0x100073)
+    yield 'group_u_type',p.finish(),p.options('u_type')
+
+    p=GoldenProgram()
+    p.expect(j(1,8),1,4); p.emit(0xffffffff)
+    p.expect(i(0x13,2,0,0,21),2,21) # target 16 after negative offset and bit0 mask
+    p.expect(i(0x67,2,0,2,-4),2,16) # rd aliases old rs1; target16, link16
+    p.expect(j(3,8),3,20); p.emit(0x100073)
+    p.expect(j(0,-4),0,28); p.emit(0xffffffff)
+    yield 'group_jumps',p.finish(),p.options('jumps')
+
+    p=GoldenProgram(); p.emit(0x0ff0000f,0x8ff1808f,0x0000000f); p.expect(i(0x13,10,0,0,7),10,7); p.emit(0x100073)
+    yield 'group_fence_system',p.finish(),p.options('fence_system')
+    yield 'group_system_ecall',[0x73],dict(group='fence_system')
+
+
 class Stop(Exception):
     def __init__(self, cause, pc, tval=0): self.info=(cause,pc,tval & MASK)
 
 # This model decodes raw instruction bits independently of the RTL control signals.
-def execute(code, initial, imem_fault=MASK, dmem_fault=MASK, reset_pc=0):
+def execute(code, initial, imem_fault=MASK, dmem_fault=MASK, reset_pc=0, coverage=None, final_regs=None):
     regs=[0]*32; mem=bytearray(initial); pc=reset_pc; retire=[]; txns=[]
+    if coverage is None: coverage=Counter()
     try:
         for _ in range(20000):
             if pc & 3: raise Stop(0,pc,pc)
@@ -104,6 +237,7 @@ def execute(code, initial, imem_fault=MASK, dmem_fault=MASK, reset_pc=0):
             elif op==0x63:
                 if f3 not in (0,1,4,5,6,7): raise Stop(2,pc,ins)
                 take={0:av==cv,1:av!=cv,4:sx(av,32)<sx(cv,32),5:sx(av,32)>=sx(cv,32),6:av<cv,7:av>=cv}[f3]
+                coverage[f'branch:{mnemonic(ins)}:{"taken" if take else "not_taken"}']+=1
                 bi=((ins>>31)<<12)|(((ins>>7)&1)<<11)|(((ins>>25)&63)<<5)|(((ins>>8)&15)<<1)
                 if take:
                     npc=(pc+sx(bi,13))&MASK
@@ -117,11 +251,14 @@ def execute(code, initial, imem_fault=MASK, dmem_fault=MASK, reset_pc=0):
                 lane=addr&3; be=((1<<width)-1)<<lane; wd=(cv<<(8*lane))&MASK
                 txns.append((addr,int(store),be,wd if store else 0))
                 if addr==dmem_fault or addr+width>MEM_BYTES: raise Stop(7 if store else 5,pc,addr)
+                coverage[f'lane:{mnemonic(ins)}:{lane}']+=1
                 if store:
                     mem[addr:addr+width]=(cv&((1<<(width*8))-1)).to_bytes(width,'little')
                 else:
                     result=int.from_bytes(mem[addr:addr+width],'little')
-                    if f3 in (0,1): result=sx(result,width*8)
+                    if f3 in (0,1):
+                        coverage[f'sign:{mnemonic(ins)}:{"negative" if result>>(width*8-1) else "positive"}']+=1
+                        result=sx(result,width*8)
                     wr=True
             elif op==0xf:
                 if f3: raise Stop(2,pc,ins)
@@ -130,12 +267,17 @@ def execute(code, initial, imem_fault=MASK, dmem_fault=MASK, reset_pc=0):
                 if ins==0x100073: raise Stop(3,pc)
                 raise Stop(2,pc,ins)
             else: raise Stop(2,pc,ins)
+            coverage[f'mnemonic:{mnemonic(ins)}']+=1
+            if op==0x13 and f3 in (1,5): coverage[f'shamt:{mnemonic(ins)}:{c}']+=1
             result&=MASK
             retire.append((pc,ins,int(wr and rd!=0),rd,result))
             if wr and rd: regs[rd]=result
             regs[0]=0; pc=npc
         raise RuntimeError('reference model timeout')
     except Stop as stop:
+        if final_regs is not None: final_regs.extend(regs)
+        coverage[f'fault:{stop.info[0]}']+=1
+        if stop.info[0] in (3,11): coverage[f'mnemonic:{"EBREAK" if stop.info[0]==3 else "ECALL"}']+=1
         return retire,txns,mem,stop.info
 
 def main_program(seed):
@@ -184,13 +326,27 @@ def main_program(seed):
     p.emit(0x100073)
     return p.finish()
 
-def write_case(root,name,code,imem_fault=MASK,dmem_fault=MASK,reset_pc=0):
+def write_case(root,name,code,imem_fault=MASK,dmem_fault=MASK,reset_pc=0,group="regression",golden=None,memory_golden=None):
     out=root/name; out.mkdir(parents=True,exist_ok=True)
     initial=bytearray(((n*73+0x81)&255) for n in range(MEM_BYTES))
-    retire,txns,final,stop=execute(code,initial,imem_fault,dmem_fault,reset_pc)
+    coverage=Counter(); final_regs=[]
+    retire,txns,final,stop=execute(code,initial,imem_fault,dmem_fault,reset_pc,coverage,final_regs)
+    # These explicit constants are authored independently of execute(): detect
+    # model/encoder mistakes before its trace is consumed by the RTL scoreboard.
+    golden=golden or {}
+    memory_golden=memory_golden or {}
+    by_pc={row[0]:row for row in retire}
+    for pc,(rd,value) in golden.items():
+        row=by_pc.get(pc)
+        if row is None or row[2:]!=(int(rd!=0),rd,value):
+            raise AssertionError(f'{name}: fixed golden pc={pc:x}, expected rd{rd}={value:08x}, model={row}')
+    for addr,value in memory_golden.items():
+        if final[addr]!=value: raise AssertionError(f'{name}: fixed memory golden addr={addr:x}')
+    (out/'metadata.json').write_text(json.dumps(dict(name=name,group=group,coverage=dict(sorted(coverage.items())),golden_checks=len(golden)+len(memory_golden),retirements=len(retire),transactions=len(txns),halt_cause=stop[0]),indent=2)+'\n')
     def words(data): return [int.from_bytes(data[n:n+4],'little') for n in range(0,len(data),4)]
     (out/'program.hex').write_text(''.join(f'{v:08x}\n' for v in code+[0x13]*(WORDS-len(code))))
     (out/'data.hex').write_text(''.join(f'{v:08x}\n' for v in words(initial)))
+    (out/'registers.hex').write_text(''.join(f'{v:08x}\n' for v in final_regs))
     (out/'final.hex').write_text(''.join(f'{v:08x}\n' for v in words(final)))
     (out/'retire.hex').write_text(''.join(' '.join(f'{v:x}' for v in row)+'\n' for row in retire))
     (out/'transactions.hex').write_text(''.join(' '.join(f'{v:x}' for v in row)+'\n' for row in txns))
@@ -229,8 +385,15 @@ def generate(root):
     # Unsupported extensions, malformed integer encodings, and exact SYSTEM checks.
     bad=[0xffffffff,0, r(1,0,0,0,1),i(0x13,1,1,0,0x20),i(0x13,1,1,0,0x400),i(0x13,1,5,0,0x200),i(0x67,1,1,0,0),i(3,1,3,0,0),s(3,0,1,0),b(2,0,0,0),0x0000100f,0x30001073,0x00200073,0x00008073,0x000000f3,0x30200073]
     for idx,ins in enumerate(bad): case(f'illegal_{idx:02}',[ins])
+    for name,code,options in grouped_programs(): case(name,code,**options)
     (root/'cases.txt').write_text('\n'.join(names)+'\n')
-    print(f'Generated {len(names)} cases in {root}')
+    coverage=Counter()
+    for name in names: coverage.update(json.loads((root/name/'metadata.json').read_text())['coverage'])
+    required=coverage_requirements()
+    missing={key:count for key,count in required.items() if coverage[key]<count}
+    if missing: raise AssertionError(f'coverage gates missing: {missing}')
+    (root/'coverage.json').write_text(json.dumps(dict(status='PASS',source='executed reference paths; RTL results checked separately',counts=dict(sorted(coverage.items())),minimums=required,cases=len(names)),indent=2)+'\n')
+    print(f'Generated {len(names)} cases in {root}; {len(required)} coverage gates PASS')
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(); ap.add_argument('--out',type=Path,default=Path('build/cases')); generate(ap.parse_args().out)

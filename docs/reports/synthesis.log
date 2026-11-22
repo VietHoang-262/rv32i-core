@@ -2099,6 +2099,6 @@ Dumping module `\rv32i_lsu'.
 Dumping module `\rv32i_regfile'.
 
 Warnings: 1 unique messages, 1 total
-End of script. Logfile hash: de4e06c3c9, CPU: user 2.58s system 0.04s, MEM: 61.23 MB peak
+End of script. Logfile hash: de4e06c3c9, CPU: user 3.08s system 0.04s, MEM: 61.32 MB peak
 Yosys 0.23 (git sha1 7ce5011c24b)
-Time spent: 21% 36x opt_expr (0 sec), 13% 19x opt_merge (0 sec), ...
+Time spent: 21% 36x opt_expr (0 sec), 12% 19x opt_merge (0 sec), ...

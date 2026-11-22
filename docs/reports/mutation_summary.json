@@ -1,0 +1,71 @@
+{
+  "case": "isa_seed_1",
+  "latency_mode": 2,
+  "baseline_pass": true,
+  "detected": 6,
+  "planned_mutations": 6,
+  "source_rtl_unchanged": true,
+  "scope": "Six selected wiring faults; not a general mutation-coverage score.",
+  "results": [
+    {
+      "name": "baseline",
+      "status": "pass",
+      "compile_returncode": 0,
+      "simulation_returncode": 0
+    },
+    {
+      "name": "rf_source_ports_swapped",
+      "status": "detected",
+      "compile_returncode": 0,
+      "source": "rtl/rv32i_core.sv",
+      "purpose": "RF source-address wiring must preserve rs1 and rs2 roles.",
+      "simulation_returncode": 1,
+      "evidence": "FATAL: ./tb/rv32i_core_checks.svh:16: connection/state: decoder -> RF read addresses pc=00000004 instruction=00008093 state=2"
+    },
+    {
+      "name": "alu_immediate_mux_bypassed",
+      "status": "detected",
+      "compile_returncode": 0,
+      "source": "rtl/rv32i_core.sv",
+      "purpose": "Immediate ALU instructions must select the decoded immediate.",
+      "simulation_returncode": 1,
+      "evidence": "FATAL: ./tb/rv32i_core_checks.svh:16: connection/state: operands/control -> ALU pc=00000000 instruction=800000b7 state=2"
+    },
+    {
+      "name": "rf_writeback_bit_corrupted",
+      "status": "detected",
+      "compile_returncode": 0,
+      "source": "rtl/rv32i_core.sv",
+      "purpose": "The physical RF write port must receive the committed result.",
+      "simulation_returncode": 1,
+      "evidence": "FATAL: ./tb/rv32i_core_checks.svh:16: connection/state: writeback -> RF pc=00000000 instruction=00000000 state=0"
+    },
+    {
+      "name": "store_lane_shift_bypassed",
+      "status": "detected",
+      "compile_returncode": 0,
+      "source": "rtl/rv32i_lsu.sv",
+      "purpose": "Subword stores must place the low rs2 bytes in addressed lanes.",
+      "simulation_returncode": 1,
+      "evidence": "FATAL: tb/tb_core.sv:158: data txn 16 addr=00000405 we=1 be=2 data=80ff7f01 expected 00000405 1 2 ff7f0100"
+    },
+    {
+      "name": "pc_advanced_during_fetch_stall",
+      "status": "detected",
+      "compile_returncode": 0,
+      "source": "rtl/rv32i_core.sv",
+      "purpose": "PC and instruction request address must remain stable while stalled.",
+      "simulation_returncode": 1,
+      "evidence": "FATAL: ./tb/rv32i_core_checks.svh:16: connection/state: PC changed outside commit pc=00000004 instruction=00000000 state=1"
+    },
+    {
+      "name": "jalr_bit_zero_mask_removed",
+      "status": "detected",
+      "compile_returncode": 0,
+      "source": "rtl/rv32i_core.sv",
+      "purpose": "JALR must clear target bit zero before checking IALIGN32.",
+      "simulation_returncode": 1,
+      "evidence": "FATAL: tb/tb_core.sv:113: halt mismatch cause=0 pc=00000274 tval=00000281 ecall=0 break=0 expected 00000003 00000a3c 00000000 0 1"
+    }
+  ]
+}

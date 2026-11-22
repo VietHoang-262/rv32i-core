@@ -1,0 +1,461 @@
+/workspace/.tools/iverilog/usr/bin/iverilog -B /workspace/.tools/iverilog/usr/lib/x86_64-linux-gnu/ivl -g2012 -s tb_units -o build/tb_units.vvp rtl/rv32i_pkg.sv rtl/rv32i_decoder.sv rtl/rv32i_alu.sv rtl/rv32i_regfile.sv rtl/rv32i_lsu.sv rtl/rv32i_core.sv tb/tb_units.sv
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_alu.sv:10: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/workspace/.tools/iverilog/usr/bin/vvp build/tb_units.vvp
+PASS units: 518036 checks
+python3 scripts/gen_tests.py --out build/cases
+Generated 61 cases in build/cases; 97 coverage gates PASS
+/workspace/.tools/iverilog/usr/bin/iverilog -B /workspace/.tools/iverilog/usr/lib/x86_64-linux-gnu/ivl -g2012 -s tb_core -o build/tb_core.vvp rtl/rv32i_pkg.sv rtl/rv32i_decoder.sv rtl/rv32i_alu.sv rtl/rv32i_regfile.sv rtl/rv32i_lsu.sv rtl/rv32i_core.sv tb/tb_latency_memory.sv tb/tb_core.sv
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_alu.sv:10: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_core.sv:80: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_core.sv:80: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_core.sv:80: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/workspace/.tools/iverilog/usr/bin/iverilog -B /workspace/.tools/iverilog/usr/lib/x86_64-linux-gnu/ivl -g2012 -s tb_core -Ptb_core.RESET_PC=2 -o build/tb_core_pc2.vvp rtl/rv32i_pkg.sv rtl/rv32i_decoder.sv rtl/rv32i_alu.sv rtl/rv32i_regfile.sv rtl/rv32i_lsu.sv rtl/rv32i_core.sv tb/tb_latency_memory.sv tb/tb_core.sv
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_decoder.sv:17: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_alu.sv:10: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_lsu.sv:16: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_core.sv:80: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_core.sv:80: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+rtl/rv32i_core.sv:80: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+python3 scripts/run_tests.py --vvp '/workspace/.tools/iverilog/usr/bin/vvp' --build build
+PASS core build/cases/isa_seed_1 latency=0 imem=0 dmem=0 noise=0 retire=647 data=188 cycles=2784 stalls=0/0
+PASS core build/cases/isa_seed_1 latency=1 imem=1 dmem=1 noise=0 retire=647 data=188 cycles=3620 stalls=648/188
+PASS core build/cases/isa_seed_1 latency=2 imem=2 dmem=2 noise=1 retire=647 data=188 cycles=5292 stalls=1946/562
+PASS core build/cases/isa_seed_1 latency=2 imem=0 dmem=3 noise=1 retire=647 data=188 cycles=8612 stalls=0/5828
+PASS core build/cases/isa_seed_1 latency=2 imem=3 dmem=0 noise=1 retire=647 data=188 cycles=22872 stalls=20088/0
+PASS core build/cases/isa_seed_1 latency=2 imem=4 dmem=4 noise=1 retire=647 data=188 cycles=22008 stalls=14913/4311
+PASS core build/cases/isa_seed_23 latency=0 imem=0 dmem=0 noise=0 retire=647 data=188 cycles=2784 stalls=0/0
+PASS core build/cases/isa_seed_23 latency=1 imem=1 dmem=1 noise=0 retire=647 data=188 cycles=3620 stalls=648/188
+PASS core build/cases/isa_seed_23 latency=2 imem=2 dmem=2 noise=1 retire=647 data=188 cycles=5292 stalls=1946/562
+PASS core build/cases/isa_seed_23 latency=2 imem=0 dmem=3 noise=1 retire=647 data=188 cycles=8612 stalls=0/5828
+PASS core build/cases/isa_seed_23 latency=2 imem=3 dmem=0 noise=1 retire=647 data=188 cycles=22872 stalls=20088/0
+PASS core build/cases/isa_seed_23 latency=2 imem=4 dmem=4 noise=1 retire=647 data=188 cycles=22008 stalls=14913/4311
+PASS core build/cases/isa_seed_2026 latency=0 imem=0 dmem=0 noise=0 retire=647 data=188 cycles=2784 stalls=0/0
+PASS core build/cases/isa_seed_2026 latency=1 imem=1 dmem=1 noise=0 retire=647 data=188 cycles=3620 stalls=648/188
+PASS core build/cases/isa_seed_2026 latency=2 imem=2 dmem=2 noise=1 retire=647 data=188 cycles=5292 stalls=1946/562
+PASS core build/cases/isa_seed_2026 latency=2 imem=0 dmem=3 noise=1 retire=647 data=188 cycles=8612 stalls=0/5828
+PASS core build/cases/isa_seed_2026 latency=2 imem=3 dmem=0 noise=1 retire=647 data=188 cycles=22872 stalls=20088/0
+PASS core build/cases/isa_seed_2026 latency=2 imem=4 dmem=4 noise=1 retire=647 data=188 cycles=22008 stalls=14913/4311
+PASS core build/cases/ecall latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/ecall latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/ecall latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/ecall latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/ecall latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/ecall latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/ebreak latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/ebreak latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/ebreak latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/ebreak latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/ebreak latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/ebreak latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/fetch_error latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/fetch_error latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=7 stalls=1/0
+PASS core build/cases/fetch_error latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=9 stalls=3/0
+PASS core build/cases/fetch_error latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/fetch_error latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=37 stalls=31/0
+PASS core build/cases/fetch_error latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=17 stalls=11/0
+PASS core build/cases/fetch_error_after_jump latency=0 imem=0 dmem=0 noise=0 retire=1 data=0 cycles=10 stalls=0/0
+PASS core build/cases/fetch_error_after_jump latency=1 imem=1 dmem=1 noise=0 retire=1 data=0 cycles=12 stalls=2/0
+PASS core build/cases/fetch_error_after_jump latency=2 imem=2 dmem=2 noise=1 retire=1 data=0 cycles=14 stalls=4/0
+PASS core build/cases/fetch_error_after_jump latency=2 imem=0 dmem=3 noise=1 retire=1 data=0 cycles=10 stalls=0/0
+PASS core build/cases/fetch_error_after_jump latency=2 imem=3 dmem=0 noise=1 retire=1 data=0 cycles=72 stalls=62/0
+PASS core build/cases/fetch_error_after_jump latency=2 imem=4 dmem=4 noise=1 retire=1 data=0 cycles=43 stalls=33/0
+PASS core build/cases/load_align_1_1 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_1_1 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_1_1 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_1_1 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_1_1 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_1_1 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_align_1_3 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_1_3 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_1_3 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_1_3 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_1_3 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_1_3 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_align_2_1 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_2_1 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_2_1 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_2_1 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_2_1 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_2_1 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_align_2_2 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_2_2 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_2_2 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_2_2 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_2_2 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_2_2 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_align_2_3 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_2_3 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_2_3 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_2_3 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_2_3 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_2_3 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_align_5_1 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_5_1 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_5_1 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_5_1 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_5_1 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_5_1 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_align_5_3 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_5_3 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/load_align_5_3 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/load_align_5_3 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/load_align_5_3 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/load_align_5_3 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/store_align_1_1 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_1_1 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/store_align_1_1 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/store_align_1_1 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_1_1 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/store_align_1_1 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/store_align_1_3 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_1_3 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/store_align_1_3 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/store_align_1_3 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_1_3 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/store_align_1_3 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/store_align_2_1 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_2_1 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/store_align_2_1 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/store_align_2_1 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_2_1 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/store_align_2_1 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/store_align_2_2 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_2_2 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/store_align_2_2 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/store_align_2_2 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_2_2 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/store_align_2_2 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/store_align_2_3 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_2_3 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/store_align_2_3 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/store_align_2_3 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/store_align_2_3 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/store_align_2_3 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/load_error latency=0 imem=0 dmem=0 noise=0 retire=0 data=1 cycles=9 stalls=0/0
+PASS core build/cases/load_error latency=1 imem=1 dmem=1 noise=0 retire=0 data=1 cycles=11 stalls=1/1
+PASS core build/cases/load_error latency=2 imem=2 dmem=2 noise=1 retire=0 data=1 cycles=15 stalls=3/3
+PASS core build/cases/load_error latency=2 imem=0 dmem=3 noise=1 retire=0 data=1 cycles=40 stalls=0/31
+PASS core build/cases/load_error latency=2 imem=3 dmem=0 noise=1 retire=0 data=1 cycles=40 stalls=31/0
+PASS core build/cases/load_error latency=2 imem=4 dmem=4 noise=1 retire=0 data=1 cycles=31 stalls=11/11
+PASS core build/cases/load_x0_error latency=0 imem=0 dmem=0 noise=0 retire=0 data=1 cycles=9 stalls=0/0
+PASS core build/cases/load_x0_error latency=1 imem=1 dmem=1 noise=0 retire=0 data=1 cycles=11 stalls=1/1
+PASS core build/cases/load_x0_error latency=2 imem=2 dmem=2 noise=1 retire=0 data=1 cycles=15 stalls=3/3
+PASS core build/cases/load_x0_error latency=2 imem=0 dmem=3 noise=1 retire=0 data=1 cycles=40 stalls=0/31
+PASS core build/cases/load_x0_error latency=2 imem=3 dmem=0 noise=1 retire=0 data=1 cycles=40 stalls=31/0
+PASS core build/cases/load_x0_error latency=2 imem=4 dmem=4 noise=1 retire=0 data=1 cycles=31 stalls=11/11
+PASS core build/cases/fetch_out_of_range latency=0 imem=0 dmem=0 noise=0 retire=2 data=0 cycles=14 stalls=0/0
+PASS core build/cases/fetch_out_of_range latency=1 imem=1 dmem=1 noise=0 retire=2 data=0 cycles=17 stalls=3/0
+PASS core build/cases/fetch_out_of_range latency=2 imem=2 dmem=2 noise=1 retire=2 data=0 cycles=24 stalls=10/0
+PASS core build/cases/fetch_out_of_range latency=2 imem=0 dmem=3 noise=1 retire=2 data=0 cycles=14 stalls=0/0
+PASS core build/cases/fetch_out_of_range latency=2 imem=3 dmem=0 noise=1 retire=2 data=0 cycles=107 stalls=93/0
+PASS core build/cases/fetch_out_of_range latency=2 imem=4 dmem=4 noise=1 retire=2 data=0 cycles=80 stalls=66/0
+PASS core build/cases/jalr_same_rd_rs1 latency=0 imem=0 dmem=0 noise=0 retire=2 data=0 cycles=16 stalls=0/0
+PASS core build/cases/jalr_same_rd_rs1 latency=1 imem=1 dmem=1 noise=0 retire=2 data=0 cycles=19 stalls=3/0
+PASS core build/cases/jalr_same_rd_rs1 latency=2 imem=2 dmem=2 noise=1 retire=2 data=0 cycles=26 stalls=10/0
+PASS core build/cases/jalr_same_rd_rs1 latency=2 imem=0 dmem=3 noise=1 retire=2 data=0 cycles=16 stalls=0/0
+PASS core build/cases/jalr_same_rd_rs1 latency=2 imem=3 dmem=0 noise=1 retire=2 data=0 cycles=109 stalls=93/0
+PASS core build/cases/jalr_same_rd_rs1 latency=2 imem=4 dmem=4 noise=1 retire=2 data=0 cycles=82 stalls=66/0
+PASS core build/cases/jal_negative latency=0 imem=0 dmem=0 noise=0 retire=2 data=0 cycles=16 stalls=0/0
+PASS core build/cases/jal_negative latency=1 imem=1 dmem=1 noise=0 retire=2 data=0 cycles=19 stalls=3/0
+PASS core build/cases/jal_negative latency=2 imem=2 dmem=2 noise=1 retire=2 data=0 cycles=26 stalls=10/0
+PASS core build/cases/jal_negative latency=2 imem=0 dmem=3 noise=1 retire=2 data=0 cycles=16 stalls=0/0
+PASS core build/cases/jal_negative latency=2 imem=3 dmem=0 noise=1 retire=2 data=0 cycles=109 stalls=93/0
+PASS core build/cases/jal_negative latency=2 imem=4 dmem=4 noise=1 retire=2 data=0 cycles=82 stalls=66/0
+PASS core build/cases/store_error latency=0 imem=0 dmem=0 noise=0 retire=1 data=1 cycles=13 stalls=0/0
+PASS core build/cases/store_error latency=1 imem=1 dmem=1 noise=0 retire=1 data=1 cycles=16 stalls=2/1
+PASS core build/cases/store_error latency=2 imem=2 dmem=2 noise=1 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/store_error latency=2 imem=0 dmem=3 noise=1 retire=1 data=1 cycles=44 stalls=0/31
+PASS core build/cases/store_error latency=2 imem=3 dmem=0 noise=1 retire=1 data=1 cycles=75 stalls=62/0
+PASS core build/cases/store_error latency=2 imem=4 dmem=4 noise=1 retire=1 data=1 cycles=57 stalls=33/11
+PASS core build/cases/load_out_of_range latency=0 imem=0 dmem=0 noise=0 retire=1 data=1 cycles=13 stalls=0/0
+PASS core build/cases/load_out_of_range latency=1 imem=1 dmem=1 noise=0 retire=1 data=1 cycles=16 stalls=2/1
+PASS core build/cases/load_out_of_range latency=2 imem=2 dmem=2 noise=1 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/load_out_of_range latency=2 imem=0 dmem=3 noise=1 retire=1 data=1 cycles=44 stalls=0/31
+PASS core build/cases/load_out_of_range latency=2 imem=3 dmem=0 noise=1 retire=1 data=1 cycles=75 stalls=62/0
+PASS core build/cases/load_out_of_range latency=2 imem=4 dmem=4 noise=1 retire=1 data=1 cycles=57 stalls=33/11
+PASS core build/cases/store_out_of_range latency=0 imem=0 dmem=0 noise=0 retire=1 data=1 cycles=13 stalls=0/0
+PASS core build/cases/store_out_of_range latency=1 imem=1 dmem=1 noise=0 retire=1 data=1 cycles=16 stalls=2/1
+PASS core build/cases/store_out_of_range latency=2 imem=2 dmem=2 noise=1 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/store_out_of_range latency=2 imem=0 dmem=3 noise=1 retire=1 data=1 cycles=44 stalls=0/31
+PASS core build/cases/store_out_of_range latency=2 imem=3 dmem=0 noise=1 retire=1 data=1 cycles=75 stalls=62/0
+PASS core build/cases/store_out_of_range latency=2 imem=4 dmem=4 noise=1 retire=1 data=1 cycles=57 stalls=33/11
+PASS core build/cases/jal_align latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/jal_align latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/jal_align latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/jal_align latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/jal_align latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/jal_align latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/jalr_align latency=0 imem=0 dmem=0 noise=0 retire=1 data=0 cycles=12 stalls=0/0
+PASS core build/cases/jalr_align latency=1 imem=1 dmem=1 noise=0 retire=1 data=0 cycles=14 stalls=2/0
+PASS core build/cases/jalr_align latency=2 imem=2 dmem=2 noise=1 retire=1 data=0 cycles=16 stalls=4/0
+PASS core build/cases/jalr_align latency=2 imem=0 dmem=3 noise=1 retire=1 data=0 cycles=12 stalls=0/0
+PASS core build/cases/jalr_align latency=2 imem=3 dmem=0 noise=1 retire=1 data=0 cycles=74 stalls=62/0
+PASS core build/cases/jalr_align latency=2 imem=4 dmem=4 noise=1 retire=1 data=0 cycles=45 stalls=33/0
+PASS core build/cases/branch_align_taken latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/branch_align_taken latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/branch_align_taken latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/branch_align_taken latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/branch_align_taken latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/branch_align_taken latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/branch_align_not_taken latency=0 imem=0 dmem=0 noise=0 retire=1 data=0 cycles=12 stalls=0/0
+PASS core build/cases/branch_align_not_taken latency=1 imem=1 dmem=1 noise=0 retire=1 data=0 cycles=14 stalls=2/0
+PASS core build/cases/branch_align_not_taken latency=2 imem=2 dmem=2 noise=1 retire=1 data=0 cycles=16 stalls=4/0
+PASS core build/cases/branch_align_not_taken latency=2 imem=0 dmem=3 noise=1 retire=1 data=0 cycles=12 stalls=0/0
+PASS core build/cases/branch_align_not_taken latency=2 imem=3 dmem=0 noise=1 retire=1 data=0 cycles=74 stalls=62/0
+PASS core build/cases/branch_align_not_taken latency=2 imem=4 dmem=4 noise=1 retire=1 data=0 cycles=45 stalls=33/0
+PASS core build/cases/reset_pc_align latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/reset_pc_align latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/reset_pc_align latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/reset_pc_align latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/reset_pc_align latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/reset_pc_align latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=6 stalls=0/0
+PASS core build/cases/reset_fetch latency=0 imem=0 dmem=0 noise=0 retire=1 data=0 cycles=12 stalls=0/0
+PASS core build/cases/reset_fetch latency=1 imem=1 dmem=1 noise=0 retire=1 data=0 cycles=14 stalls=2/0
+PASS core build/cases/reset_fetch latency=2 imem=2 dmem=2 noise=1 retire=1 data=0 cycles=16 stalls=4/0
+PASS core build/cases/reset_fetch latency=2 imem=0 dmem=3 noise=1 retire=1 data=0 cycles=12 stalls=0/0
+PASS core build/cases/reset_fetch latency=2 imem=3 dmem=0 noise=1 retire=1 data=0 cycles=74 stalls=62/0
+PASS core build/cases/reset_fetch latency=2 imem=4 dmem=4 noise=1 retire=1 data=0 cycles=45 stalls=33/0
+PASS core build/cases/reset_data latency=0 imem=0 dmem=0 noise=0 retire=1 data=1 cycles=13 stalls=0/0
+PASS core build/cases/reset_data latency=1 imem=1 dmem=1 noise=0 retire=1 data=1 cycles=16 stalls=2/1
+PASS core build/cases/reset_data latency=2 imem=2 dmem=2 noise=1 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/reset_data latency=2 imem=0 dmem=3 noise=1 retire=1 data=1 cycles=44 stalls=0/31
+PASS core build/cases/reset_data latency=2 imem=3 dmem=0 noise=1 retire=1 data=1 cycles=75 stalls=62/0
+PASS core build/cases/reset_data latency=2 imem=4 dmem=4 noise=1 retire=1 data=1 cycles=57 stalls=33/11
+PASS core build/cases/reset_store latency=0 imem=0 dmem=0 noise=0 retire=1 data=1 cycles=13 stalls=0/0
+PASS core build/cases/reset_store latency=1 imem=1 dmem=1 noise=0 retire=1 data=1 cycles=16 stalls=2/1
+PASS core build/cases/reset_store latency=2 imem=2 dmem=2 noise=1 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/reset_store latency=2 imem=0 dmem=3 noise=1 retire=1 data=1 cycles=44 stalls=0/31
+PASS core build/cases/reset_store latency=2 imem=3 dmem=0 noise=1 retire=1 data=1 cycles=75 stalls=62/0
+PASS core build/cases/reset_store latency=2 imem=4 dmem=4 noise=1 retire=1 data=1 cycles=57 stalls=33/11
+PASS core build/cases/illegal_00 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_00 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_00 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_00 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_00 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_00 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_01 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_01 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_01 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_01 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_01 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_01 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_02 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_02 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_02 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_02 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_02 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_02 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_03 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_03 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_03 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_03 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_03 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_03 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_04 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_04 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_04 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_04 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_04 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_04 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_05 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_05 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_05 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_05 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_05 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_05 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_06 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_06 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_06 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_06 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_06 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_06 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_07 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_07 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_07 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_07 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_07 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_07 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_08 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_08 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_08 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_08 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_08 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_08 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_09 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_09 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_09 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_09 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_09 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_09 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_10 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_10 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_10 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_10 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_10 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_10 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_11 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_11 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_11 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_11 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_11 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_11 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_12 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_12 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_12 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_12 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_12 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_12 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_13 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_13 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_13 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_13 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_13 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_13 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_14 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_14 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_14 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_14 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_14 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_14 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/illegal_15 latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_15 latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=8 stalls=1/0
+PASS core build/cases/illegal_15 latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=10 stalls=3/0
+PASS core build/cases/illegal_15 latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=7 stalls=0/0
+PASS core build/cases/illegal_15 latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=38 stalls=31/0
+PASS core build/cases/illegal_15 latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=18 stalls=11/0
+PASS core build/cases/group_r_type latency=0 imem=0 dmem=0 noise=0 retire=27 data=0 cycles=116 stalls=0/0
+PASS core build/cases/group_r_type latency=1 imem=1 dmem=1 noise=0 retire=27 data=0 cycles=144 stalls=28/0
+PASS core build/cases/group_r_type latency=2 imem=2 dmem=2 noise=1 retire=27 data=0 cycles=200 stalls=84/0
+PASS core build/cases/group_r_type latency=2 imem=0 dmem=3 noise=1 retire=27 data=0 cycles=116 stalls=0/0
+PASS core build/cases/group_r_type latency=2 imem=3 dmem=0 noise=1 retire=27 data=0 cycles=984 stalls=868/0
+PASS core build/cases/group_r_type latency=2 imem=4 dmem=4 noise=1 retire=27 data=0 cycles=769 stalls=653/0
+PASS core build/cases/group_i_arithmetic latency=0 imem=0 dmem=0 noise=0 retire=13 data=0 cycles=60 stalls=0/0
+PASS core build/cases/group_i_arithmetic latency=1 imem=1 dmem=1 noise=0 retire=13 data=0 cycles=74 stalls=14/0
+PASS core build/cases/group_i_arithmetic latency=2 imem=2 dmem=2 noise=1 retire=13 data=0 cycles=102 stalls=42/0
+PASS core build/cases/group_i_arithmetic latency=2 imem=0 dmem=3 noise=1 retire=13 data=0 cycles=60 stalls=0/0
+PASS core build/cases/group_i_arithmetic latency=2 imem=3 dmem=0 noise=1 retire=13 data=0 cycles=494 stalls=434/0
+PASS core build/cases/group_i_arithmetic latency=2 imem=4 dmem=4 noise=1 retire=13 data=0 cycles=378 stalls=318/0
+PASS core build/cases/group_shift_imm latency=0 imem=0 dmem=0 noise=0 retire=14 data=0 cycles=64 stalls=0/0
+PASS core build/cases/group_shift_imm latency=1 imem=1 dmem=1 noise=0 retire=14 data=0 cycles=79 stalls=15/0
+PASS core build/cases/group_shift_imm latency=2 imem=2 dmem=2 noise=1 retire=14 data=0 cycles=109 stalls=45/0
+PASS core build/cases/group_shift_imm latency=2 imem=0 dmem=3 noise=1 retire=14 data=0 cycles=64 stalls=0/0
+PASS core build/cases/group_shift_imm latency=2 imem=3 dmem=0 noise=1 retire=14 data=0 cycles=529 stalls=465/0
+PASS core build/cases/group_shift_imm latency=2 imem=4 dmem=4 noise=1 retire=14 data=0 cycles=392 stalls=328/0
+PASS core build/cases/group_loads latency=0 imem=0 dmem=0 noise=0 retire=22 data=16 cycles=112 stalls=0/0
+PASS core build/cases/group_loads latency=1 imem=1 dmem=1 noise=0 retire=22 data=16 cycles=151 stalls=23/16
+PASS core build/cases/group_loads latency=2 imem=2 dmem=2 noise=1 retire=22 data=16 cycles=225 stalls=67/46
+PASS core build/cases/group_loads latency=2 imem=0 dmem=3 noise=1 retire=22 data=16 cycles=608 stalls=0/496
+PASS core build/cases/group_loads latency=2 imem=3 dmem=0 noise=1 retire=22 data=16 cycles=825 stalls=713/0
+PASS core build/cases/group_loads latency=2 imem=4 dmem=4 noise=1 retire=22 data=16 cycles=986 stalls=525/349
+PASS core build/cases/group_stores latency=0 imem=0 dmem=0 noise=0 retire=17 data=11 cycles=87 stalls=0/0
+PASS core build/cases/group_stores latency=1 imem=1 dmem=1 noise=0 retire=17 data=11 cycles=116 stalls=18/11
+PASS core build/cases/group_stores latency=2 imem=2 dmem=2 noise=1 retire=17 data=11 cycles=178 stalls=56/35
+PASS core build/cases/group_stores latency=2 imem=0 dmem=3 noise=1 retire=17 data=11 cycles=428 stalls=0/341
+PASS core build/cases/group_stores latency=2 imem=3 dmem=0 noise=1 retire=17 data=11 cycles=645 stalls=558/0
+PASS core build/cases/group_stores latency=2 imem=4 dmem=4 noise=1 retire=17 data=11 cycles=741 stalls=393/261
+PASS core build/cases/group_branches latency=0 imem=0 dmem=0 noise=0 retire=41 data=0 cycles=172 stalls=0/0
+PASS core build/cases/group_branches latency=1 imem=1 dmem=1 noise=0 retire=41 data=0 cycles=214 stalls=42/0
+PASS core build/cases/group_branches latency=2 imem=2 dmem=2 noise=1 retire=41 data=0 cycles=298 stalls=126/0
+PASS core build/cases/group_branches latency=2 imem=0 dmem=3 noise=1 retire=41 data=0 cycles=172 stalls=0/0
+PASS core build/cases/group_branches latency=2 imem=3 dmem=0 noise=1 retire=41 data=0 cycles=1474 stalls=1302/0
+PASS core build/cases/group_branches latency=2 imem=4 dmem=4 noise=1 retire=41 data=0 cycles=1146 stalls=974/0
+PASS core build/cases/group_u_type latency=0 imem=0 dmem=0 noise=0 retire=4 data=0 cycles=24 stalls=0/0
+PASS core build/cases/group_u_type latency=1 imem=1 dmem=1 noise=0 retire=4 data=0 cycles=29 stalls=5/0
+PASS core build/cases/group_u_type latency=2 imem=2 dmem=2 noise=1 retire=4 data=0 cycles=40 stalls=16/0
+PASS core build/cases/group_u_type latency=2 imem=0 dmem=3 noise=1 retire=4 data=0 cycles=24 stalls=0/0
+PASS core build/cases/group_u_type latency=2 imem=3 dmem=0 noise=1 retire=4 data=0 cycles=179 stalls=155/0
+PASS core build/cases/group_u_type latency=2 imem=4 dmem=4 noise=1 retire=4 data=0 cycles=127 stalls=103/0
+PASS core build/cases/group_jumps latency=0 imem=0 dmem=0 noise=0 retire=5 data=0 cycles=28 stalls=0/0
+PASS core build/cases/group_jumps latency=1 imem=1 dmem=1 noise=0 retire=5 data=0 cycles=34 stalls=6/0
+PASS core build/cases/group_jumps latency=2 imem=2 dmem=2 noise=1 retire=5 data=0 cycles=44 stalls=16/0
+PASS core build/cases/group_jumps latency=2 imem=0 dmem=3 noise=1 retire=5 data=0 cycles=28 stalls=0/0
+PASS core build/cases/group_jumps latency=2 imem=3 dmem=0 noise=1 retire=5 data=0 cycles=214 stalls=186/0
+PASS core build/cases/group_jumps latency=2 imem=4 dmem=4 noise=1 retire=5 data=0 cycles=166 stalls=138/0
+PASS core build/cases/group_fence_system latency=0 imem=0 dmem=0 noise=0 retire=4 data=0 cycles=24 stalls=0/0
+PASS core build/cases/group_fence_system latency=1 imem=1 dmem=1 noise=0 retire=4 data=0 cycles=29 stalls=5/0
+PASS core build/cases/group_fence_system latency=2 imem=2 dmem=2 noise=1 retire=4 data=0 cycles=40 stalls=16/0
+PASS core build/cases/group_fence_system latency=2 imem=0 dmem=3 noise=1 retire=4 data=0 cycles=24 stalls=0/0
+PASS core build/cases/group_fence_system latency=2 imem=3 dmem=0 noise=1 retire=4 data=0 cycles=179 stalls=155/0
+PASS core build/cases/group_fence_system latency=2 imem=4 dmem=4 noise=1 retire=4 data=0 cycles=127 stalls=103/0
+PASS core build/cases/group_system_ecall latency=0 imem=0 dmem=0 noise=0 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/group_system_ecall latency=1 imem=1 dmem=1 noise=0 retire=0 data=0 cycles=9 stalls=1/0
+PASS core build/cases/group_system_ecall latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS core build/cases/group_system_ecall latency=2 imem=0 dmem=3 noise=1 retire=0 data=0 cycles=8 stalls=0/0
+PASS core build/cases/group_system_ecall latency=2 imem=3 dmem=0 noise=1 retire=0 data=0 cycles=39 stalls=31/0
+PASS core build/cases/group_system_ecall latency=2 imem=4 dmem=4 noise=1 retire=0 data=0 cycles=19 stalls=11/0
+PASS core build/cases/reset_fetch latency=2 imem=2 dmem=2 noise=0 retire=1 data=0 cycles=16 stalls=4/0
+PASS core build/cases/reset_fetch latency=3 imem=3 dmem=3 noise=1 retire=1 data=0 cycles=74 stalls=62/0
+PASS core build/cases/reset_fetch latency=3 imem=3 dmem=3 noise=1 retire=1 data=0 cycles=74 stalls=62/0
+PASS core build/cases/reset_data latency=2 imem=2 dmem=2 noise=0 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/reset_data latency=3 imem=3 dmem=3 noise=1 retire=1 data=1 cycles=106 stalls=62/31
+PASS core build/cases/reset_data latency=3 imem=3 dmem=3 noise=1 retire=1 data=1 cycles=106 stalls=62/31
+PASS core build/cases/reset_store latency=2 imem=2 dmem=2 noise=0 retire=1 data=1 cycles=20 stalls=4/3
+PASS core build/cases/reset_store latency=3 imem=3 dmem=3 noise=1 retire=1 data=1 cycles=106 stalls=62/31
+PASS core build/cases/reset_store latency=3 imem=3 dmem=3 noise=1 retire=1 data=1 cycles=106 stalls=62/31
+PASS core build/cases/ecall latency=2 imem=2 dmem=2 noise=1 retire=0 data=0 cycles=11 stalls=3/0
+PASS group branches: 1 cases, 6 runs, 2 fixed goldens
+PASS group fence_system: 2 cases, 12 runs, 1 fixed goldens
+PASS group i_arithmetic: 1 cases, 6 runs, 11 fixed goldens
+PASS group jumps: 1 cases, 6 runs, 5 fixed goldens
+PASS group loads: 1 cases, 6 runs, 15 fixed goldens
+PASS group r_type: 1 cases, 6 runs, 15 fixed goldens
+PASS group regression: 51 cases, 316 runs, 0 fixed goldens
+PASS group shift_imm: 1 cases, 6 runs, 12 fixed goldens
+PASS group stores: 1 cases, 6 runs, 16 fixed goldens
+PASS group u_type: 1 cases, 6 runs, 4 fixed goldens
+PASS icarus regression: 376 core runs, 97 coverage gates, 81 fixed goldens; report=build/icarus_regression_summary.json

@@ -1,0 +1,2651 @@
+{
+  "status": "PASS",
+  "engine": "icarus",
+  "case_count": 61,
+  "run_count": 376,
+  "golden_checks": 81,
+  "coverage": {
+    "source": "reference executed paths from unique cases whose RTL comparisons passed",
+    "counts": {
+      "branch:BEQ:not_taken": 7,
+      "branch:BEQ:taken": 5,
+      "branch:BGE:not_taken": 4,
+      "branch:BGE:taken": 8,
+      "branch:BGEU:not_taken": 4,
+      "branch:BGEU:taken": 8,
+      "branch:BLT:not_taken": 8,
+      "branch:BLT:taken": 4,
+      "branch:BLTU:not_taken": 8,
+      "branch:BLTU:taken": 4,
+      "branch:BNE:not_taken": 9,
+      "branch:BNE:taken": 15,
+      "fault:0": 4,
+      "fault:1": 3,
+      "fault:11": 2,
+      "fault:2": 16,
+      "fault:3": 19,
+      "fault:4": 7,
+      "fault:5": 3,
+      "fault:6": 5,
+      "fault:7": 2,
+      "lane:LB:0": 11,
+      "lane:LB:1": 8,
+      "lane:LB:2": 12,
+      "lane:LB:3": 19,
+      "lane:LBU:0": 16,
+      "lane:LBU:1": 25,
+      "lane:LBU:2": 19,
+      "lane:LBU:3": 19,
+      "lane:LH:0": 22,
+      "lane:LH:2": 22,
+      "lane:LHU:0": 27,
+      "lane:LHU:2": 26,
+      "lane:LW:0": 93,
+      "lane:SB:0": 22,
+      "lane:SB:1": 26,
+      "lane:SB:2": 24,
+      "lane:SB:3": 34,
+      "lane:SH:0": 42,
+      "lane:SH:2": 41,
+      "lane:SW:0": 85,
+      "mnemonic:ADD": 59,
+      "mnemonic:ADDI": 181,
+      "mnemonic:AND": 63,
+      "mnemonic:ANDI": 79,
+      "mnemonic:AUIPC": 5,
+      "mnemonic:BEQ": 11,
+      "mnemonic:BGE": 12,
+      "mnemonic:BGEU": 12,
+      "mnemonic:BLT": 12,
+      "mnemonic:BLTU": 12,
+      "mnemonic:BNE": 24,
+      "mnemonic:EBREAK": 19,
+      "mnemonic:ECALL": 2,
+      "mnemonic:FENCE": 9,
+      "mnemonic:JAL": 9,
+      "mnemonic:JALR": 6,
+      "mnemonic:LB": 50,
+      "mnemonic:LBU": 79,
+      "mnemonic:LH": 44,
+      "mnemonic:LHU": 53,
+      "mnemonic:LUI": 44,
+      "mnemonic:LW": 93,
+      "mnemonic:OR": 71,
+      "mnemonic:ORI": 76,
+      "mnemonic:SB": 106,
+      "mnemonic:SH": 83,
+      "mnemonic:SLL": 71,
+      "mnemonic:SLLI": 67,
+      "mnemonic:SLT": 65,
+      "mnemonic:SLTI": 69,
+      "mnemonic:SLTIU": 67,
+      "mnemonic:SLTU": 83,
+      "mnemonic:SRA": 55,
+      "mnemonic:SRAI": 48,
+      "mnemonic:SRL": 59,
+      "mnemonic:SRLI": 46,
+      "mnemonic:SUB": 49,
+      "mnemonic:SW": 85,
+      "mnemonic:XOR": 78,
+      "mnemonic:XORI": 68,
+      "shamt:SLLI:0": 7,
+      "shamt:SLLI:1": 6,
+      "shamt:SLLI:10": 1,
+      "shamt:SLLI:11": 2,
+      "shamt:SLLI:12": 2,
+      "shamt:SLLI:13": 2,
+      "shamt:SLLI:14": 2,
+      "shamt:SLLI:15": 4,
+      "shamt:SLLI:16": 1,
+      "shamt:SLLI:17": 4,
+      "shamt:SLLI:19": 3,
+      "shamt:SLLI:2": 1,
+      "shamt:SLLI:20": 1,
+      "shamt:SLLI:21": 1,
+      "shamt:SLLI:22": 2,
+      "shamt:SLLI:23": 1,
+      "shamt:SLLI:24": 2,
+      "shamt:SLLI:25": 1,
+      "shamt:SLLI:26": 2,
+      "shamt:SLLI:27": 3,
+      "shamt:SLLI:28": 2,
+      "shamt:SLLI:3": 3,
+      "shamt:SLLI:30": 1,
+      "shamt:SLLI:31": 4,
+      "shamt:SLLI:4": 2,
+      "shamt:SLLI:5": 1,
+      "shamt:SLLI:6": 3,
+      "shamt:SLLI:9": 3,
+      "shamt:SRAI:0": 6,
+      "shamt:SRAI:1": 4,
+      "shamt:SRAI:10": 2,
+      "shamt:SRAI:11": 3,
+      "shamt:SRAI:15": 4,
+      "shamt:SRAI:18": 1,
+      "shamt:SRAI:19": 1,
+      "shamt:SRAI:2": 1,
+      "shamt:SRAI:20": 1,
+      "shamt:SRAI:21": 1,
+      "shamt:SRAI:22": 2,
+      "shamt:SRAI:23": 1,
+      "shamt:SRAI:25": 1,
+      "shamt:SRAI:26": 1,
+      "shamt:SRAI:27": 1,
+      "shamt:SRAI:28": 1,
+      "shamt:SRAI:29": 2,
+      "shamt:SRAI:31": 5,
+      "shamt:SRAI:4": 2,
+      "shamt:SRAI:5": 2,
+      "shamt:SRAI:6": 2,
+      "shamt:SRAI:7": 1,
+      "shamt:SRAI:8": 2,
+      "shamt:SRAI:9": 1,
+      "shamt:SRLI:0": 5,
+      "shamt:SRLI:1": 7,
+      "shamt:SRLI:10": 2,
+      "shamt:SRLI:14": 1,
+      "shamt:SRLI:15": 4,
+      "shamt:SRLI:16": 1,
+      "shamt:SRLI:17": 2,
+      "shamt:SRLI:2": 2,
+      "shamt:SRLI:22": 2,
+      "shamt:SRLI:23": 1,
+      "shamt:SRLI:25": 2,
+      "shamt:SRLI:26": 1,
+      "shamt:SRLI:28": 1,
+      "shamt:SRLI:29": 3,
+      "shamt:SRLI:3": 1,
+      "shamt:SRLI:31": 4,
+      "shamt:SRLI:4": 2,
+      "shamt:SRLI:6": 2,
+      "shamt:SRLI:7": 1,
+      "shamt:SRLI:8": 1,
+      "shamt:SRLI:9": 1,
+      "sign:LB:negative": 13,
+      "sign:LB:positive": 37,
+      "sign:LH:negative": 11,
+      "sign:LH:positive": 33
+    },
+    "minimums": {
+      "branch:BEQ:not_taken": 1,
+      "branch:BEQ:taken": 1,
+      "branch:BGE:not_taken": 1,
+      "branch:BGE:taken": 1,
+      "branch:BGEU:not_taken": 1,
+      "branch:BGEU:taken": 1,
+      "branch:BLT:not_taken": 1,
+      "branch:BLT:taken": 1,
+      "branch:BLTU:not_taken": 1,
+      "branch:BLTU:taken": 1,
+      "branch:BNE:not_taken": 1,
+      "branch:BNE:taken": 1,
+      "fault:0": 1,
+      "fault:1": 1,
+      "fault:11": 1,
+      "fault:2": 1,
+      "fault:3": 1,
+      "fault:4": 1,
+      "fault:5": 1,
+      "fault:6": 1,
+      "fault:7": 1,
+      "lane:LB:0": 1,
+      "lane:LB:1": 1,
+      "lane:LB:2": 1,
+      "lane:LB:3": 1,
+      "lane:LBU:0": 1,
+      "lane:LBU:1": 1,
+      "lane:LBU:2": 1,
+      "lane:LBU:3": 1,
+      "lane:LH:0": 1,
+      "lane:LH:2": 1,
+      "lane:LHU:0": 1,
+      "lane:LHU:2": 1,
+      "lane:LW:0": 1,
+      "lane:SB:0": 1,
+      "lane:SB:1": 1,
+      "lane:SB:2": 1,
+      "lane:SB:3": 1,
+      "lane:SH:0": 1,
+      "lane:SH:2": 1,
+      "lane:SW:0": 1,
+      "mnemonic:ADD": 1,
+      "mnemonic:ADDI": 1,
+      "mnemonic:AND": 1,
+      "mnemonic:ANDI": 1,
+      "mnemonic:AUIPC": 1,
+      "mnemonic:BEQ": 1,
+      "mnemonic:BGE": 1,
+      "mnemonic:BGEU": 1,
+      "mnemonic:BLT": 1,
+      "mnemonic:BLTU": 1,
+      "mnemonic:BNE": 1,
+      "mnemonic:EBREAK": 1,
+      "mnemonic:ECALL": 1,
+      "mnemonic:FENCE": 1,
+      "mnemonic:JAL": 1,
+      "mnemonic:JALR": 1,
+      "mnemonic:LB": 1,
+      "mnemonic:LBU": 1,
+      "mnemonic:LH": 1,
+      "mnemonic:LHU": 1,
+      "mnemonic:LUI": 1,
+      "mnemonic:LW": 1,
+      "mnemonic:OR": 1,
+      "mnemonic:ORI": 1,
+      "mnemonic:SB": 1,
+      "mnemonic:SH": 1,
+      "mnemonic:SLL": 1,
+      "mnemonic:SLLI": 1,
+      "mnemonic:SLT": 1,
+      "mnemonic:SLTI": 1,
+      "mnemonic:SLTIU": 1,
+      "mnemonic:SLTU": 1,
+      "mnemonic:SRA": 1,
+      "mnemonic:SRAI": 1,
+      "mnemonic:SRL": 1,
+      "mnemonic:SRLI": 1,
+      "mnemonic:SUB": 1,
+      "mnemonic:SW": 1,
+      "mnemonic:XOR": 1,
+      "mnemonic:XORI": 1,
+      "shamt:SLLI:0": 1,
+      "shamt:SLLI:1": 1,
+      "shamt:SLLI:15": 1,
+      "shamt:SLLI:31": 1,
+      "shamt:SRAI:0": 1,
+      "shamt:SRAI:1": 1,
+      "shamt:SRAI:15": 1,
+      "shamt:SRAI:31": 1,
+      "shamt:SRLI:0": 1,
+      "shamt:SRLI:1": 1,
+      "shamt:SRLI:15": 1,
+      "shamt:SRLI:31": 1,
+      "sign:LB:negative": 1,
+      "sign:LB:positive": 1,
+      "sign:LH:negative": 1,
+      "sign:LH:positive": 1
+    },
+    "missing": {}
+  },
+  "groups": {
+    "branches": {
+      "cases": [
+        "group_branches"
+      ],
+      "runs": 6,
+      "golden_checks": 2
+    },
+    "fence_system": {
+      "cases": [
+        "group_fence_system",
+        "group_system_ecall"
+      ],
+      "runs": 12,
+      "golden_checks": 1
+    },
+    "i_arithmetic": {
+      "cases": [
+        "group_i_arithmetic"
+      ],
+      "runs": 6,
+      "golden_checks": 11
+    },
+    "jumps": {
+      "cases": [
+        "group_jumps"
+      ],
+      "runs": 6,
+      "golden_checks": 5
+    },
+    "loads": {
+      "cases": [
+        "group_loads"
+      ],
+      "runs": 6,
+      "golden_checks": 15
+    },
+    "r_type": {
+      "cases": [
+        "group_r_type"
+      ],
+      "runs": 6,
+      "golden_checks": 15
+    },
+    "regression": {
+      "cases": [
+        "isa_seed_1",
+        "isa_seed_23",
+        "isa_seed_2026",
+        "ecall",
+        "ebreak",
+        "fetch_error",
+        "fetch_error_after_jump",
+        "load_align_1_1",
+        "load_align_1_3",
+        "load_align_2_1",
+        "load_align_2_2",
+        "load_align_2_3",
+        "load_align_5_1",
+        "load_align_5_3",
+        "store_align_1_1",
+        "store_align_1_3",
+        "store_align_2_1",
+        "store_align_2_2",
+        "store_align_2_3",
+        "load_error",
+        "load_x0_error",
+        "fetch_out_of_range",
+        "jalr_same_rd_rs1",
+        "jal_negative",
+        "store_error",
+        "load_out_of_range",
+        "store_out_of_range",
+        "jal_align",
+        "jalr_align",
+        "branch_align_taken",
+        "branch_align_not_taken",
+        "reset_pc_align",
+        "reset_fetch",
+        "reset_data",
+        "reset_store",
+        "illegal_00",
+        "illegal_01",
+        "illegal_02",
+        "illegal_03",
+        "illegal_04",
+        "illegal_05",
+        "illegal_06",
+        "illegal_07",
+        "illegal_08",
+        "illegal_09",
+        "illegal_10",
+        "illegal_11",
+        "illegal_12",
+        "illegal_13",
+        "illegal_14",
+        "illegal_15"
+      ],
+      "runs": 316,
+      "golden_checks": 0
+    },
+    "shift_imm": {
+      "cases": [
+        "group_shift_imm"
+      ],
+      "runs": 6,
+      "golden_checks": 12
+    },
+    "stores": {
+      "cases": [
+        "group_stores"
+      ],
+      "runs": 6,
+      "golden_checks": 16
+    },
+    "u_type": {
+      "cases": [
+        "group_u_type"
+      ],
+      "runs": 6,
+      "golden_checks": 4
+    }
+  },
+  "runs": [
+    {
+      "case": "isa_seed_1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_23",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_23",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_23",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_23",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_23",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_23",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_2026",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_2026",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_2026",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_2026",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_2026",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "isa_seed_2026",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "ebreak",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "ebreak",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "ebreak",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "ebreak",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "ebreak",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "ebreak",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error_after_jump",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error_after_jump",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error_after_jump",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error_after_jump",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error_after_jump",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_error_after_jump",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_3",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_3",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_3",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_3",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_3",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_1_3",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_2",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_2",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_2",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_2",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_2",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_2",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_3",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_3",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_3",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_3",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_3",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_2_3",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_3",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_3",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_3",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_3",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_3",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_align_5_3",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_3",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_3",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_3",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_3",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_3",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_1_3",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_2",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_2",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_2",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_2",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_2",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_2",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_3",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_3",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_3",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_3",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_3",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_align_2_3",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_error",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_error",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_error",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_error",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_error",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_error",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_x0_error",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_x0_error",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_x0_error",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_x0_error",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_x0_error",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_x0_error",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_out_of_range",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_out_of_range",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_out_of_range",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_out_of_range",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_out_of_range",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "fetch_out_of_range",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_same_rd_rs1",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_same_rd_rs1",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_same_rd_rs1",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_same_rd_rs1",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_same_rd_rs1",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_same_rd_rs1",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_negative",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_negative",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_negative",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_negative",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_negative",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_negative",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_error",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_error",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_error",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_error",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_error",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_error",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "load_out_of_range",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "load_out_of_range",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "load_out_of_range",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "load_out_of_range",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_out_of_range",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "load_out_of_range",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "store_out_of_range",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "store_out_of_range",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "store_out_of_range",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "store_out_of_range",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_out_of_range",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "store_out_of_range",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_align",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_align",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_align",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_align",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_align",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jal_align",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_align",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_align",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_align",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_align",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_align",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "jalr_align",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_taken",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_taken",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_taken",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_taken",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_taken",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_taken",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_not_taken",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_not_taken",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_not_taken",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_not_taken",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_not_taken",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "branch_align_not_taken",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_pc_align",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_pc_align",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_pc_align",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_pc_align",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_pc_align",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_pc_align",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_00",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_00",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_00",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_00",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_00",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_00",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_01",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_01",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_01",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_01",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_01",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_01",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_02",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_02",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_02",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_02",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_02",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_02",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_03",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_03",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_03",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_03",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_03",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_03",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_04",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_04",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_04",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_04",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_04",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_04",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_05",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_05",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_05",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_05",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_05",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_05",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_06",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_06",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_06",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_06",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_06",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_06",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_07",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_07",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_07",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_07",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_07",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_07",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_08",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_08",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_08",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_08",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_08",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_08",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_09",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_09",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_09",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_09",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_09",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_09",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_10",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_10",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_10",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_10",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_10",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_10",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_11",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_11",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_11",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_11",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_11",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_11",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_12",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_12",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_12",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_12",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_12",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_12",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_13",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_13",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_13",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_13",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_13",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_13",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_14",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_14",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_14",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_14",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_14",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_14",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_15",
+      "group": "regression",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_15",
+      "group": "regression",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_15",
+      "group": "regression",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_15",
+      "group": "regression",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_15",
+      "group": "regression",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "illegal_15",
+      "group": "regression",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_r_type",
+      "group": "r_type",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_r_type",
+      "group": "r_type",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_r_type",
+      "group": "r_type",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_r_type",
+      "group": "r_type",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_r_type",
+      "group": "r_type",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_r_type",
+      "group": "r_type",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_i_arithmetic",
+      "group": "i_arithmetic",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_i_arithmetic",
+      "group": "i_arithmetic",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_i_arithmetic",
+      "group": "i_arithmetic",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_i_arithmetic",
+      "group": "i_arithmetic",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_i_arithmetic",
+      "group": "i_arithmetic",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_i_arithmetic",
+      "group": "i_arithmetic",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_shift_imm",
+      "group": "shift_imm",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_shift_imm",
+      "group": "shift_imm",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_shift_imm",
+      "group": "shift_imm",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_shift_imm",
+      "group": "shift_imm",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_shift_imm",
+      "group": "shift_imm",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_shift_imm",
+      "group": "shift_imm",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_loads",
+      "group": "loads",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_loads",
+      "group": "loads",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_loads",
+      "group": "loads",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_loads",
+      "group": "loads",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_loads",
+      "group": "loads",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_loads",
+      "group": "loads",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_stores",
+      "group": "stores",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_stores",
+      "group": "stores",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_stores",
+      "group": "stores",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_stores",
+      "group": "stores",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_stores",
+      "group": "stores",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_stores",
+      "group": "stores",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_branches",
+      "group": "branches",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_branches",
+      "group": "branches",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_branches",
+      "group": "branches",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_branches",
+      "group": "branches",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_branches",
+      "group": "branches",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_branches",
+      "group": "branches",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_u_type",
+      "group": "u_type",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_u_type",
+      "group": "u_type",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_u_type",
+      "group": "u_type",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_u_type",
+      "group": "u_type",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_u_type",
+      "group": "u_type",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_u_type",
+      "group": "u_type",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_jumps",
+      "group": "jumps",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_jumps",
+      "group": "jumps",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_jumps",
+      "group": "jumps",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_jumps",
+      "group": "jumps",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_jumps",
+      "group": "jumps",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_jumps",
+      "group": "jumps",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_fence_system",
+      "group": "fence_system",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_fence_system",
+      "group": "fence_system",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_fence_system",
+      "group": "fence_system",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_fence_system",
+      "group": "fence_system",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_fence_system",
+      "group": "fence_system",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_fence_system",
+      "group": "fence_system",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "group_system_ecall",
+      "group": "fence_system",
+      "schedule": "zero",
+      "status": "PASS"
+    },
+    {
+      "case": "group_system_ecall",
+      "group": "fence_system",
+      "schedule": "one",
+      "status": "PASS"
+    },
+    {
+      "case": "group_system_ecall",
+      "group": "fence_system",
+      "schedule": "variable_noise",
+      "status": "PASS"
+    },
+    {
+      "case": "group_system_ecall",
+      "group": "fence_system",
+      "schedule": "fast_i_slow_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_system_ecall",
+      "group": "fence_system",
+      "schedule": "slow_i_fast_d",
+      "status": "PASS"
+    },
+    {
+      "case": "group_system_ecall",
+      "group": "fence_system",
+      "schedule": "long_variable",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "reset_stall",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "reset_long_stall",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_fetch",
+      "group": "regression",
+      "schedule": "reset_completion_cancel",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "reset_stall",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "reset_long_stall",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_data",
+      "group": "regression",
+      "schedule": "reset_completion_cancel",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "reset_stall",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "reset_long_stall",
+      "status": "PASS"
+    },
+    {
+      "case": "reset_store",
+      "group": "regression",
+      "schedule": "reset_completion_cancel",
+      "status": "PASS"
+    },
+    {
+      "case": "ecall",
+      "group": "regression",
+      "schedule": "reset_halted",
+      "status": "PASS"
+    }
+  ]
+}

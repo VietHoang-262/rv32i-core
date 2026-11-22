@@ -21,6 +21,11 @@ module tb_units;
   logic [3:0] expected_be;
   logic [31:0] samples [0:7];
   logic [31:0] rng;
+  logic [31:0] raw_imm;
+  instr_kind_t expected_kind;
+  alu_op_t expected_op;
+  branch_t expected_branch;
+  logic expected_rd_we, expected_alu_src_imm;
 
   rv32i_decoder decoder(.inst_i(inst), .dec_o(dec));
   rv32i_alu alu(.a_i(a), .b_i(b), .op_i(alu_op), .result_o(result));
@@ -98,6 +103,58 @@ module tb_units;
           endcase
           #1;
           check((dec.kind!=IK_ILLEGAL)===expected_legal, "Decoder legality sweep");
+          check(dec.rs1===5'd1 && dec.rs2===5'd3 && dec.rd===5'd2 &&
+                dec.funct3===f3[2:0], "Decoder register/funct3 field wiring");
+          if (!expected_legal) begin
+            check(dec.rd_we===1'b0 && dec.branch===BR_NONE,
+                  "Illegal decode cannot authorize a write or branch");
+          end else begin
+            expected_kind=IK_ILLEGAL;
+            expected_rd_we=0;
+            expected_alu_src_imm=0;
+            expected_branch=BR_NONE;
+            case (op)
+              'h33: begin expected_kind=IK_ALU; expected_rd_we=1; end
+              'h13: begin expected_kind=IK_ALU; expected_rd_we=1; expected_alu_src_imm=1; end
+              'h03: begin expected_kind=IK_LOAD; expected_rd_we=1; expected_alu_src_imm=1; end
+              'h23: begin expected_kind=IK_STORE; expected_alu_src_imm=1; end
+              'h63: begin
+                expected_kind=IK_BRANCH;
+                case(f3)
+                  0: expected_branch=BR_EQ;
+                  1: expected_branch=BR_NE;
+                  4: expected_branch=BR_LT;
+                  5: expected_branch=BR_GE;
+                  6: expected_branch=BR_LTU;
+                  7: expected_branch=BR_GEU;
+                  default: expected_branch=BR_NONE;
+                endcase
+              end
+              'h37: begin expected_kind=IK_LUI; expected_rd_we=1; expected_alu_src_imm=1; end
+              'h17: begin expected_kind=IK_AUIPC; expected_rd_we=1; expected_alu_src_imm=1; end
+              'h6f: begin expected_kind=IK_JAL; expected_rd_we=1; end
+              'h67: begin expected_kind=IK_JALR; expected_rd_we=1; end
+              'h0f: expected_kind=IK_FENCE;
+              default: expected_kind=IK_ILLEGAL;
+            endcase
+            check(dec.kind===expected_kind && dec.rd_we===expected_rd_we &&
+                  dec.alu_src_imm===expected_alu_src_imm && dec.branch===expected_branch,
+                  "Decoder instruction-kind and datapath control wiring");
+            if (op=='h33 || op=='h13) begin
+              case (f3)
+                0: if (op=='h33 && f7==32) expected_op=ALU_SUB; else expected_op=ALU_ADD;
+                1: expected_op=ALU_SLL;
+                2: expected_op=ALU_SLT;
+                3: expected_op=ALU_SLTU;
+                4: expected_op=ALU_XOR;
+                5: if (f7==32) expected_op=ALU_SRA; else expected_op=ALU_SRL;
+                6: expected_op=ALU_OR;
+                7: expected_op=ALU_AND;
+                default: expected_op=ALU_ADD;
+              endcase
+              check(dec.alu_op===expected_op, "Decoder complete ALU operation map");
+            end
+          end
           if (expected_legal && op=='h13 && f3==5)
             check(dec.alu_op===((f7==32)?ALU_SRA:ALU_SRL), "SRLI/SRAI exact funct7");
           if (expected_legal && op=='h33 && f3==5)
@@ -131,6 +188,63 @@ module tb_units;
     for (i=0;i<32;i=i+1) begin
       inst=(i<<20)|(1<<15)|(1<<12)|(2<<7)|32'h13; #1;
       check(dec.imm[4:0]===i[4:0] && dec.alu_op===ALU_SLL, "SLLI shamt bits 24:20");
+    end
+
+    // Exercise every bit of all register indices, rather than relying only on
+    // the fixed register fields in the legality sweep.
+    for (i=0;i<32;i=i+1) begin
+      inst=(((i+7)&31)<<20)|(i<<15)|((31-i)<<7)|32'h33; #1;
+      check(dec.rs1===i[4:0] && dec.rs2===((i+7)&31) && dec.rd===(31-i),
+            "All five bits of rs1/rs2/rd are independently wired");
+    end
+
+    // Numeric immediate values provide the reference. The encodings use all
+    // 4096 possible payloads so sign extension and every split S/B wire are
+    // checked, including min/max offsets and positive/negative transitions.
+    for (i=0;i<4096;i=i+1) begin
+      expected_data=(i<2048)?i:(i-4096);
+      inst=(i<<20)|32'h00010093; #1;
+      check(dec.kind===IK_ALU && dec.imm===expected_data, "All ADDI I-immediates");
+      inst=(i<<20)|32'h00014083; #1;
+      check(dec.kind===IK_LOAD && dec.imm===expected_data, "All load I-immediates");
+      inst=(i<<20)|32'h000100e7; #1;
+      check(dec.kind===IK_JALR && dec.imm===expected_data, "All JALR I-immediates");
+      inst=((i/32)<<25)|((i%32)<<7)|32'h00312023; #1;
+      check(dec.kind===IK_STORE && dec.imm===expected_data, "All split S-immediates");
+      expected_data=(i<2048)?(2*i):(2*i-8192);
+      inst=((i/2048)<<31)|(((i/1024)%2)<<7)|(((i/16)%64)<<25)|
+           ((i%16)<<8)|32'h00310063; #1;
+      check(dec.kind===IK_BRANCH && dec.imm===expected_data, "All split B-immediates");
+    end
+
+    // Walking-one and walking-zero payloads check every J/U immediate wire
+    // and complement; mixed patterns test simultaneous bit combinations.
+    for (mode=0;mode<2;mode=mode+1) begin
+      for (i=0;i<20;i=i+1) begin
+        raw_imm=32'b1<<i;
+        if (mode!=0) raw_imm=raw_imm^32'h000fffff;
+        expected_data=(raw_imm<524288)?(2*raw_imm):(2*raw_imm-2097152);
+        inst=(((raw_imm>>19)&1)<<31)|((raw_imm&1023)<<21)|
+             (((raw_imm>>10)&1)<<20)|(((raw_imm>>11)&255)<<12)|32'h000000ef; #1;
+        check(dec.kind===IK_JAL && dec.imm===expected_data, "Every split J-immediate wire");
+        expected_data=raw_imm<<12;
+        inst=(raw_imm<<12)|32'h000000b7; #1;
+        check(dec.kind===IK_LUI && dec.imm===expected_data, "Every LUI U-immediate wire");
+        inst=(raw_imm<<12)|32'h00000097; #1;
+        check(dec.kind===IK_AUIPC && dec.imm===expected_data, "Every AUIPC U-immediate wire");
+      end
+    end
+    rng=32'h9a37c015;
+    for (i=0;i<512;i=i+1) begin
+      rng={rng[30:0],rng[31]^rng[21]^rng[1]^rng[0]};
+      raw_imm=rng&32'h000fffff;
+      expected_data=(raw_imm<524288)?(2*raw_imm):(2*raw_imm-2097152);
+      inst=(((raw_imm>>19)&1)<<31)|((raw_imm&1023)<<21)|
+           (((raw_imm>>10)&1)<<20)|(((raw_imm>>11)&255)<<12)|32'h000000ef; #1;
+      check(dec.imm===expected_data, "Mixed J-immediate bit combinations");
+      expected_data=raw_imm<<12;
+      inst=(raw_imm<<12)|32'h000000b7; #1;
+      check(dec.imm===expected_data, "Mixed U-immediate bit combinations");
     end
 
     samples[0]=0; samples[1]=1; samples[2]=32'hffffffff; samples[3]=32'h80000000;
@@ -203,6 +317,21 @@ module tb_units;
           end
         end
       end
+    end
+
+    // Write-enable suppression and a second asynchronous reset after the
+    // registers contain data. A held reset must also suppress an active write.
+    @(negedge clk); rd=5; rd_data=32'hbad0cafe; rd_we=0;
+    @(posedge clk); #1; rs1=5; #1;
+    check(rs1_data===32'hcaf00005, "RF disabled write preserves register");
+    @(negedge clk); rd_we=1; rst_n=0; #1;
+    check(rs1_data===32'b0, "RF asynchronous reset clears without clock edge");
+    @(posedge clk); #1;
+    check(rs1_data===32'b0, "RF held reset suppresses active write");
+    @(negedge clk); rd_we=0; rst_n=1;
+    for(i=0;i<32;i=i+1) begin
+      rs1=i[4:0]; rs2=31-i; #1;
+      check(rs1_data===32'b0 && rs2_data===32'b0, "All RF entries cleared on restart");
     end
     $display("PASS units: %0d checks", checks);
     $finish;

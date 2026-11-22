@@ -17,6 +17,8 @@ Dự án cung cấp lõi RV32I 32-bit không pipeline, điều khiển bằng FS
 | `tb/`, `tests/`, `scripts/` | Môi trường kiểm thử và công cụ chạy |
 | [docs/architecture.md](docs/architecture.md) | ISA, datapath, FSM và hành vi dừng |
 | [docs/integration.md](docs/integration.md) | Hợp đồng bộ nhớ, reset và tích hợp SoC |
+| [docs/verification.md](docs/verification.md) | Ma trận nhóm lệnh, cách chạy và chứng cứ kiểm thử |
+| [docs/connectivity-audit.md](docs/connectivity-audit.md) | Kiểm tra kết nối giữa các khối và đường điều khiển |
 
 ## Phạm vi thực thi
 
@@ -40,9 +42,10 @@ git clone https://github.com/VietHoang-262/rv32i-core.git
 cd rv32i-core
 make test
 make lint
-bash scripts/synth.sh
+make synth
+make crosscheck
 ```
 
-Kiểm chứng đã ghi nhận 233.420 unit checks, 157 lượt toàn core, lint và synthesis smoke đều PASS. Công cụ, lệnh chạy và giới hạn kiểm chứng được ghi lại trong [docs/verification.md](docs/verification.md). Trước khi tích hợp, đọc kỹ [hợp đồng bộ nhớ](docs/integration.md): `ready` biểu thị **hoàn tất giao dịch**, không chỉ nhận yêu cầu. Hai cổng này là giao thức nội bộ riêng của dự án, không phải AXI4-Lite.
+Kiểm chứng đã ghi nhận **518.036 unit checks**, **376 lượt toàn core trên Icarus và 376 lượt trên Verilator**, 40 mnemonic/97 ngưỡng coverage và 81 golden cố định; lint và synthesis smoke đều PASS. Các nhóm lệnh có target riêng như `make test-r-type`, `make test-loads`, `make test-branches`; [ma trận đầy đủ](docs/verification.md) liệt kê từng nhóm và tình huống kiểm tra. Công cụ, lệnh chạy và giới hạn kiểm chứng được ghi lại trong [docs/verification.md](docs/verification.md). Trước khi tích hợp, đọc kỹ [hợp đồng bộ nhớ](docs/integration.md): `ready` biểu thị **hoàn tất giao dịch**, không chỉ nhận yêu cầu. Hai cổng này là giao thức nội bộ riêng của dự án, không phải AXI4-Lite.
 
-Log kiểm chứng của phiên bản ban đầu được lưu trong [docs/reports](docs/reports).
+Audit kết nối không phát hiện lỗi cần sửa và không thay đổi RTL hoặc hành vi CPU. Log và JSON của đợt audit cùng regression theo nhóm được lưu trong [docs/reports](docs/reports).

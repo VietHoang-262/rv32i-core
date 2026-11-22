@@ -30,7 +30,7 @@ Các tín hiệu lỗi là phần mở rộng cần thiết để nền tảng b
 
 ### Handshake
 
-Một giao dịch hoàn tất tại cạnh lên có `req=1 && ready=1`. Core giữ request và payload ổn định trong toàn bộ thời gian `req=1 && ready=0`. Slave có thể hoàn tất ngay trong chu kỳ đầu hoặc chèn số chu kỳ chờ tùy ý. Error và read data chỉ được lấy mẫu tại cạnh hoàn tất.
+Một giao dịch hoàn tất tại cạnh lên có `req=1 && ready=1`. Core giữ request và payload ổn định trong toàn bộ thời gian `req=1 && ready=0`. Slave có thể hoàn tất ngay trong chu kỳ đầu hoặc chèn số chu kỳ chờ tùy ý. Error và read data chỉ được lấy mẫu tại cạnh hoàn tất. Khi `req=0`, ready/error/rdata không biểu diễn phản hồi của một transaction đang tồn tại và không được làm thay đổi trạng thái kiến trúc. Slave có thể giữ ready ở mức 1 khi idle; nếu request xuất hiện cùng lúc ready=1, đó là completion ngay tại cạnh handshake.
 
 ```text
 clock edge       A       B       C       D       E

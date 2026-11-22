@@ -1,0 +1,8 @@
+PASS mutation baseline
+DETECTED mutation rf_source_ports_swapped
+DETECTED mutation alu_immediate_mux_bypassed
+DETECTED mutation rf_writeback_bit_corrupted
+DETECTED mutation store_lane_shift_bypassed
+DETECTED mutation pc_advanced_during_fetch_stall
+DETECTED mutation jalr_bit_zero_mask_removed
+PASS mutation smoke: 6/6 selected wiring faults detected; original RTL unchanged
