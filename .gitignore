@@ -1,0 +1,10 @@
+# Generated simulation and synthesis artifacts
+/build/
+__pycache__/
+*.py[cod]
+*.vcd
+*.fst
+*.vvp
+/obj_dir/
+# Local implementation coordination notes
+/IMPLEMENTATION_CONTRACT.md

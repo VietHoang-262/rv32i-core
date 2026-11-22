@@ -1,0 +1,315 @@
+PASS core build/cases/isa_seed_1 latency=0 retire=647 data=188 cycles=2784
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_1 latency=1 retire=647 data=188 cycles=3620
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_1 latency=2 retire=647 data=188 cycles=5292
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_23 latency=0 retire=647 data=188 cycles=2784
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_23 latency=1 retire=647 data=188 cycles=3620
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_23 latency=2 retire=647 data=188 cycles=5292
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_2026 latency=0 retire=647 data=188 cycles=2784
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_2026 latency=1 retire=647 data=188 cycles=3620
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/isa_seed_2026 latency=2 retire=647 data=188 cycles=5292
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ecall latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ecall latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ecall latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ebreak latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ebreak latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ebreak latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_error latency=0 retire=0 data=0 cycles=6
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_error latency=1 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_error latency=2 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_error_after_jump latency=0 retire=1 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_error_after_jump latency=1 retire=1 data=0 cycles=12
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_error_after_jump latency=2 retire=1 data=0 cycles=14
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_1_1 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_1_1 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_1_1 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_1_3 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_1_3 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_1_3 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_1 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_1 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_1 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_2 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_2 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_2 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_3 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_3 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_2_3 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_5_1 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_5_1 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_5_1 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_5_3 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_5_3 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_align_5_3 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_1_1 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_1_1 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_1_1 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_1_3 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_1_3 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_1_3 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_1 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_1 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_1 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_2 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_2 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_2 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_3 latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_3 latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_align_2_3 latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_error latency=0 retire=0 data=1 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_error latency=1 retire=0 data=1 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_error latency=2 retire=0 data=1 cycles=15
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_x0_error latency=0 retire=0 data=1 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_x0_error latency=1 retire=0 data=1 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_x0_error latency=2 retire=0 data=1 cycles=15
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_out_of_range latency=0 retire=2 data=0 cycles=14
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_out_of_range latency=1 retire=2 data=0 cycles=17
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/fetch_out_of_range latency=2 retire=2 data=0 cycles=24
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jalr_same_rd_rs1 latency=0 retire=2 data=0 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jalr_same_rd_rs1 latency=1 retire=2 data=0 cycles=19
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jalr_same_rd_rs1 latency=2 retire=2 data=0 cycles=26
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jal_negative latency=0 retire=2 data=0 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jal_negative latency=1 retire=2 data=0 cycles=19
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jal_negative latency=2 retire=2 data=0 cycles=26
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_error latency=0 retire=1 data=1 cycles=13
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_error latency=1 retire=1 data=1 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_error latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_out_of_range latency=0 retire=1 data=1 cycles=13
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_out_of_range latency=1 retire=1 data=1 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/load_out_of_range latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_out_of_range latency=0 retire=1 data=1 cycles=13
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_out_of_range latency=1 retire=1 data=1 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/store_out_of_range latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jal_align latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jal_align latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jal_align latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jalr_align latency=0 retire=1 data=0 cycles=12
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jalr_align latency=1 retire=1 data=0 cycles=14
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/jalr_align latency=2 retire=1 data=0 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/branch_align_taken latency=0 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/branch_align_taken latency=1 retire=0 data=0 cycles=9
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/branch_align_taken latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/branch_align_not_taken latency=0 retire=1 data=0 cycles=12
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/branch_align_not_taken latency=1 retire=1 data=0 cycles=14
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/branch_align_not_taken latency=2 retire=1 data=0 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_pc_align latency=0 retire=0 data=0 cycles=6
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_pc_align latency=1 retire=0 data=0 cycles=6
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_pc_align latency=2 retire=0 data=0 cycles=6
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_fetch latency=0 retire=1 data=0 cycles=12
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_fetch latency=1 retire=1 data=0 cycles=14
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_fetch latency=2 retire=1 data=0 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_data latency=0 retire=1 data=1 cycles=13
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_data latency=1 retire=1 data=1 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_data latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_store latency=0 retire=1 data=1 cycles=13
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_store latency=1 retire=1 data=1 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_store latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_00 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_00 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_00 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_01 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_01 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_01 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_02 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_02 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_02 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_03 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_03 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_03 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_04 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_04 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_04 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_05 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_05 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_05 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_06 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_06 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_06 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_07 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_07 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_07 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_08 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_08 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_08 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_09 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_09 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_09 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_10 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_10 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_10 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_11 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_11 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_11 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_12 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_12 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_12 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_13 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_13 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_13 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_14 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_14 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_14 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_15 latency=0 retire=0 data=0 cycles=7
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_15 latency=1 retire=0 data=0 cycles=8
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/illegal_15 latency=2 retire=0 data=0 cycles=10
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_fetch latency=2 retire=1 data=0 cycles=16
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_data latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/reset_store latency=2 retire=1 data=1 cycles=20
+- tb/tb_core.sv:91: Verilog $finish
+PASS core build/cases/ecall latency=2 retire=0 data=0 cycles=11
+- tb/tb_core.sv:91: Verilog $finish
+PASS Verilator crosscheck: 157 core runs
